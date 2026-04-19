@@ -1,0 +1,38 @@
+.commit-template
+
+# <type>[scope]: <description>
+# |<---- Usar imperativo, não passa |<---- Máximo 50 caracteres
+#
+# Exemplo:
+# feat(core): adiciona detector de fraude por padrão
+# fix(validation): corrige validação de números de cartão
+#
+# <body>
+# |<---- Envie uma linha em branco antes do corpo
+# Explique o quê e por quê, não como.
+# |<---- Máximo 72 caracteres por linha
+#
+# <footer>
+# Closes #<issue number>
+# Refs #<issue number>
+
+# --- REFERÊNCIA DE TIPOS ---
+# feat:     Nova funcionalidade
+# fix:      Correção de bug
+# docs:     Mudanças em documentação
+# style:    Formatação (sem alterar lógica)
+# refactor: Refatoração sem alterar comportamento
+# perf:     Melhoria de performance
+# test:     Adição de testes
+# chore:    Atualizações de build, deps, config
+# ci:       Mudanças em CI/CD
+# revert:   Reverte um commit anterior
+
+# --- ESCOPOS TÍPICOS ---
+# core:       Lógica principal de detecção
+# api:        Endpoints REST
+# database:   Operações de BD
+# validation: Validação de dados
+# security:   Segurança
+# config:     Configurações
+

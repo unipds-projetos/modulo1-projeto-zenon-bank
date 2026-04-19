@@ -24,3 +24,41 @@ projeto prático da disciplina.
 * **Java JDK**: 25 (LTS).
 * **IDE**: IntelliJ IDEA ou Eclipse.
 * **Docker e Docker Compose**: Para a tarefa de Banco de Dados.
+
+## 📝 Padrão de Commits
+
+Este projeto utiliza **Conventional Commits** para manter um histórico de commits organizado e legível.
+
+### Estrutura Básica
+```
+<tipo>[escopo]: <descrição breve>
+
+[corpo opcional]
+
+[rodapé(s) opcional(is)]
+```
+
+### Tipos Aceitos
+- `feat`: Nova funcionalidade
+- `fix`: Correção de bug
+- `docs`: Documentação
+- `test`: Testes
+- `refactor`: Refatoração
+- `perf`: Performance
+- `style`: Formatação
+- `chore`: Dependências, configurações
+- `ci`: Pipeline CI/CD
+- `revert`: Reverte commit anterior
+
+### Exemplos
+```bash
+feat(core): implementa detector de fraude por padrão
+fix(validation): corrige validação de números de cartão
+docs: atualiza instruções de setup
+test(api): adiciona testes para endpoint de transações
+```
+
+📚 **Para mais detalhes**, consulte:
+- [`CONVENTIONAL_COMMITS.md`](./CONVENTIONAL_COMMITS.md) - Guia completo
+- [`EXEMPLOS_COMMITS.md`](./EXEMPLOS_COMMITS.md) - Exemplos práticos
+
