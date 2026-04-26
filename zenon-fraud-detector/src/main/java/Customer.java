@@ -15,25 +15,36 @@ public class Customer {
         return name;
     }
 
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-
     public BigDecimal getOldBalance() {
         return oldBalance;
     }
 
-//    public void setOldBalance(BigDecimal oldBalance) {
-//        this.oldBalance = oldBalance;
-//    }
 
     public BigDecimal getNewBalance() {
         return newBalance;
     }
 
-//    public void setNewBalance(BigDecimal newBalance) {
-//        this.newBalance = newBalance;
-//    }
+    public Customer() {
+        super();
+    }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -1,20 +1,31 @@
 public static void main(String[] args) throws Exception {
 
-    /*
-     ******************************************* Tarefa 03 **************************************************************
-     */
+    IO.println("******************************************* Tarefa 03 **************************************************************");
 
-    TransactionIngestor ingestor = new TransactionIngestor();
-        List<Transaction> lista = ingestor.read("C:\\Users\\fmmcb\\projetos\\modulo1-projeto-zenon-bank\\zenon-fraud-detector\\data\\PS_20174392719_1491204439457_log.csv");
+    var transactionIngestor = new TransactionIngestor();
+    List<Transaction> transactions = transactionIngestor.read(
+            "C:\\Users\\fmmcb\\projetos\\modulo1-projeto-zenon-bank\\zenon-fraud-detector\\data\\PS_20174392719_1491204439457_log.csv"
+    );
+    IO.println(transactions.size());
+    transactions.stream().limit(10).forEach(System.out::println);
 
-        // Exibe apenas as 10 primeiras transações
-        lista.stream().limit(10).forEach(System.out::println);
+    IO.println("******************************************* Tarefa 04 **************************************************************");
 
-  /*
-        ******************************************* Tarefa 02 **************************************************************
- */
+    List<Transaction> transactionsBadData = transactionIngestor.read(
+            "C:\\Users\\fmmcb\\projetos\\modulo1-projeto-zenon-bank\\zenon-fraud-detector\\data\\paysim_with_bad_data.csv"
+    );
 
-     // Transação 1
+// imprime a quantidade de transações válidas
+    IO.println(transactionsBadData.size());
+
+// imprime apenas as 10 primeiras transações válidas
+    transactionsBadData.stream()
+            .limit(10)
+            .forEach(System.out::println);
+
+    IO.println("******************************************* Tarefa 02 **************************************************************");
+
+    // Transação 1
     Transaction t1 = new Transaction(
             1,
             TransactionType.PAYMENT,
