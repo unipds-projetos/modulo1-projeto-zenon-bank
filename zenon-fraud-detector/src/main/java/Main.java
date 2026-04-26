@@ -1,6 +1,20 @@
-public static void main(String[] args) {
+public static void main(String[] args) throws Exception {
 
-    // Transação 1
+    /*
+     ******************************************* Tarefa 03 **************************************************************
+     */
+
+    TransactionIngestor ingestor = new TransactionIngestor();
+        List<Transaction> lista = ingestor.read("C:\\Users\\fmmcb\\projetos\\modulo1-projeto-zenon-bank\\zenon-fraud-detector\\data\\PS_20174392719_1491204439457_log.csv");
+
+        // Exibe apenas as 10 primeiras transações
+        lista.stream().limit(10).forEach(System.out::println);
+
+  /*
+        ******************************************* Tarefa 02 **************************************************************
+ */
+
+     // Transação 1
     Transaction t1 = new Transaction(
             1,
             TransactionType.PAYMENT,
