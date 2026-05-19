@@ -1,0 +1,41 @@
+package br.com.zenon;
+
+import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+
+public class TransactionIngestor {
+
+    public List<Transaction> read(String filename) {
+        Path path = Path.of(filename);
+        try {
+            List<String> lines = Files.readAllLines(path);
+            return lines.stream()
+                    .skip(1)
+                    .limit(1000)
+                    .map(this::parseTransaction)
+                    .toList();
+        }catch (Exception ex) {
+            throw new RuntimeException("Erro ao ler o arquivo" + filename, ex);
+        }
+
+    }
+    private Transaction parseTransaction(String line) {
+        String[] chuncks = line.split(",");
+
+        TransactionType type = TransactionType.valueOf(chuncks[1]);
+        BigDecimal amount = new BigDecimal(chuncks[2]);
+        TransactionCustumer origin = new TransactionCustumer(chuncks[3], new BigDecimal(chuncks[4]), new BigDecimal(chuncks[5]));
+        TransactionCustumer recipient = new TransactionCustumer(chuncks[6], new BigDecimal(chuncks[7]), new BigDecimal(chuncks[8]));
+
+        int step = Integer.parseInt(chuncks[0]);
+
+        boolean isFraud = chuncks[9].equals("1");
+        boolean isFlaggedFraud = chuncks[10].equals("1");
+
+        return new Transaction(step, type, amount, origin, recipient, isFraud, isFlaggedFraud);
+    }
+}
+
