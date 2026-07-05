@@ -1,6 +1,8 @@
 # 🏦 Zenón Bank - Projeto Prático: Fundamentos Java
 
-Bem-vindo ao repositório base do projeto prático da disciplina de Fundamentos Java. Este projeto simula o backend de uma fintech fictícia, o **Zenón Bank**, onde você aplicará conceitos desde manipulação de tipos básicos até processamento de alta performance e concorrência.
+Bem-vindo ao repositório base do projeto prático da disciplina de Fundamentos Java. 
+Este projeto simula o backend de uma fintech fictícia, o **Zenón Bank**, onde você aplicará conceitos desde 
+manipulação de tipos básicos até processamento de alta performance e concorrência.
 
 ## 📋 Sobre o Projeto
 
@@ -12,7 +14,8 @@ O objetivo é consolidar os conhecimentos adquiridos em aula através de um cen�
 * Integração com Banco de Dados.
 * Concorrência e Paralelismo.
 
-Siga o passo a passo do quadro de atividades (Trello) do projeto prático dessa disciplina, disponível nos vídeos de projeto prático da disciplina.
+Siga o passo a passo do quadro de atividades (Trello) do projeto prático dessa disciplina, 
+disponível nos vídeos de projeto prático da disciplina.
 
 ## 📦 Requisitos
 
