@@ -14,7 +14,7 @@ O objetivo é consolidar os conhecimentos adquiridos em aula através de um cen�
 
 Siga o passo a passo do quadro de atividades (Trello) do projeto prático dessa disciplina, disponível nos vídeos de projeto prático da disciplina.
 
-## 📦 Requisitos
+## 📦 Requisitos para o projeto
 
 * **Git e GitHub**: para controle de versões e portifólio de repositórios.
 * **Java JDK**: 25 (LTS).
