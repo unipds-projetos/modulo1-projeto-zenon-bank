@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TransactionIngestor {
@@ -21,6 +19,8 @@ public class TransactionIngestor {
                     .skip(1)
                     .limit(1000)
                     .map(this::parseTransaction)
+                    .filter(Optional::isPresent)
+                    .map(Optional::get)
                     .toList();
 
         } catch (IOException e) {
@@ -30,9 +30,9 @@ public class TransactionIngestor {
 
     }
 
-    public List<Transaction> readOld(String filename){
+    public List<Optional<Transaction>> readOld(String filename){
 
-        List<Transaction> transactions = new ArrayList<>();
+        List<Optional<Transaction>> transactions = new ArrayList<>();
 
         try(FileInputStream fis = new FileInputStream(filename);
             Scanner sc = new Scanner(fis)){
@@ -53,7 +53,7 @@ public class TransactionIngestor {
                     break;
                 }
 
-                Transaction transaction = parseTransaction(line);
+                Optional<Transaction> transaction = parseTransaction(line);
                 transactions.add(transaction);
 
             }
@@ -67,22 +67,38 @@ public class TransactionIngestor {
 
     }
 
-    private Transaction parseTransaction(String line) {
-        String [] chunks = line.split(",");
-        int step = Integer.parseInt(chunks[0]);
-        TransactionType type = TransactionType.valueOf(chunks[1]);
-        BigDecimal amount = new BigDecimal(chunks[2]);
+    private Optional<Transaction> parseTransaction(String line) {
 
-        TransactionCostumer origin = new TransactionCostumer(chunks[3], new BigDecimal(chunks[4]), new BigDecimal(chunks[5]));
+        try{
 
-        TransactionCostumer recipient = new TransactionCostumer(chunks[6], new BigDecimal(chunks[7]), new BigDecimal(chunks[8]));
+            String [] chunks = line.split(",");
 
 
-        boolean isFraud = "1".equals(chunks[9]);
+            int step = Integer.parseInt(chunks[0]);
 
-        boolean isFlaggedFraud = "1".equals(chunks[10]);
 
-        Transaction transaction = new Transaction(step, type,amount, origin, recipient, isFraud, isFlaggedFraud );
-        return transaction;
+            TransactionType type = TransactionType.valueOf(chunks[1]);
+
+
+
+
+            BigDecimal amount = new BigDecimal(chunks[2]);
+
+            TransactionCostumer origin = new TransactionCostumer(chunks[3], new BigDecimal(chunks[4]), new BigDecimal(chunks[5]));
+
+            TransactionCostumer recipient = new TransactionCostumer(chunks[6], new BigDecimal(chunks[7]), new BigDecimal(chunks[8]));
+
+
+            boolean isFraud = "1".equals(chunks[9]);
+
+            boolean isFlaggedFraud = "1".equals(chunks[10]);
+
+            Transaction transaction = new Transaction(step, type,amount, origin, recipient, isFraud, isFlaggedFraud );
+            return Optional.of(transaction);
+        } catch (Exception e) {
+            System.err.println("Erro ao fazer o parseTransaction: "+ line+ " - "+ e.getMessage());
+
+            return Optional.empty();
+        }
     }
 }
