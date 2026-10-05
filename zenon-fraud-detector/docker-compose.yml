@@ -1,0 +1,13 @@
+services:
+  db.zenon.frauds:
+    image: mysql:9
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: senha123
+      MYSQL_DATABASE: zenon_frauds
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql.zenon.frauds:/var/lib/mysql
+volumes:
+  mysql.zenon.frauds:
