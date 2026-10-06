@@ -17,6 +17,6 @@ Siga o passo a passo do quadro de atividades (Trello) do projeto prático dessa 
 ## 📦 Requisitos
 
 * **Git e GitHub**: para controle de versões e portifólio de repositórios.
-* **Java JDK**: 25 (LTS).
+* **Java JDK**: 26.0.2.1 (2026-08-18).
 * **IDE**: IntelliJ IDEA ou Eclipse.
 * **Docker e Docker Compose**: Para a tarefa de Banco de Dados.
