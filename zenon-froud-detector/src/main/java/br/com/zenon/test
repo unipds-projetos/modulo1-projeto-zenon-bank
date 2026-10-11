@@ -1,0 +1,17 @@
+Erro: -1,PAYMENT,1000.00,C10001,1000.00,0.00,M10001,0.00,0.00,0,0 | java.lang.IllegalArgumentException: step should be positive: -1
+Erro: 1,PAYMENT,-50.00,C10002,100.00,50.00,M10002,0.00,0.00,0,0 | java.lang.IllegalArgumentException: amount should be positive: -50.00
+Erro: 1,TRANSFER,200.00,C10003,-100.00,0.00,C20003,0.00,200.00,0,0 | java.lang.IllegalArgumentException: oldBalance should be positive: -100.00
+Erro: 1,CASH_OUT,150.00,C10004,150.00,0.00,C20004,500.00,-150.00,0,0 | java.lang.IllegalArgumentException: newBalance should be positive: -150.00
+Erro: 0,DEBIT,100.00,C10005,100.00,0.00,C20005,0.00,100.00,0,0 | java.lang.IllegalArgumentException: step should be positive: 0
+Erro: 1,COMPRA_INVALIDA,100.00,C10006,100.00,0.00,M10006,0.00,0.00,0,0 | java.lang.IllegalArgumentException: No enum constant br.com.zenon.fraud.TransactionType.COMPRA_INVALIDA
+Erro: 1,PAYMENT,100.00,,100.00,0.00,M10007,0.00,0.00,0,0 | java.lang.IllegalArgumentException: name should not be empty
+Erro: 1,PAYMENT,,C10008,100.00,0.00,M10008,0.00,0.00,0,0 | java.lang.NumberFormatException
+8
+Transaction[step=1, type=PAYMENT, amount=5000.00, origin=TransactionCustomer[name=C1000001, oldBalance=5000.00, newBalance=0.00], recipient=TransactionCustomer[name=M1000001, oldBalance=0.00, newBalance=0.00], isFraud=false, isFlaggedFraud=false]
+Transaction[step=1, type=TRANSFER, amount=200.00, origin=TransactionCustomer[name=C1000002, oldBalance=200.00, newBalance=0.00], recipient=TransactionCustomer[name=C2000002, oldBalance=0.00, newBalance=0.00], isFraud=true, isFlaggedFraud=false]
+Transaction[step=1, type=CASH_OUT, amount=0.00, origin=TransactionCustomer[name=C1000003, oldBalance=1000.00, newBalance=1000.00], recipient=TransactionCustomer[name=C2000003, oldBalance=0.00, newBalance=0.00], isFraud=false, isFlaggedFraud=false]
+Transaction[step=1, type=TRANSFER, amount=300000.00, origin=TransactionCustomer[name=C1000004, oldBalance=300000.00, newBalance=300000.00], recipient=TransactionCustomer[name=C2000004, oldBalance=0.00, newBalance=0.00], isFraud=false, isFlaggedFraud=true]
+Transaction[step=2, type=DEBIT, amount=150.00, origin=TransactionCustomer[name=C1000005, oldBalance=1000.00, newBalance=800.00], recipient=TransactionCustomer[name=C2000005, oldBalance=500.00, newBalance=650.00], isFraud=false, isFlaggedFraud=false]
+Transaction[step=2, type=CASH_IN, amount=100.00, origin=TransactionCustomer[name=C1000006, oldBalance=0.00, newBalance=100.00], recipient=TransactionCustomer[name=C2000006, oldBalance=0.00, newBalance=0.00], isFraud=false, isFlaggedFraud=false]
+Transaction[step=743, type=TRANSFER, amount=99.99, origin=TransactionCustomer[name=C1000007, oldBalance=100.00, newBalance=0.01], recipient=TransactionCustomer[name=M1000007, oldBalance=0.00, newBalance=0.00], isFraud=false, isFlaggedFraud=false]
+Transaction[step=744, type=PAYMENT, amount=1200.00, origin=TransactionCustomer[name=C1000008, oldBalance=1200.00, newBalance=0.00], recipient=TransactionCustomer[name=M1000008, oldBalance=0.00, newBalance=1200.00], isFraud=false, isFlaggedFraud=false]
