@@ -22,5 +22,12 @@ public class Main {
 		IO.println(transactions.size());
 		
 		transactions.stream().limit(10).forEach(IO::println);
+		
+		System.out.println("-----------------------------------------------------------------------------------");
+		
+		List<Transaction> transactionsBadData = transactionIngestor.read("data/paysim_with_bad_data.csv");
+		IO.println(transactionsBadData.size());
+		transactionsBadData.forEach(IO::println);
+		
 	}
 }
