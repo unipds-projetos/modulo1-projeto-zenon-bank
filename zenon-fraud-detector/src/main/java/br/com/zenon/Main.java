@@ -36,9 +36,9 @@ public class Main {
 		long fraudCount = fraudAnalyzer.countFrauds();
 		System.out.println("Total de fraudes: " + fraudCount);
 		
-		List<Transaction> top3HighestValueFrauds = fraudAnalyzer.findHighestValueFrauds(3);
+		List<BigDecimal> top3HighestValueFrauds = fraudAnalyzer.findHighestValueFraudAmount(3);
 		IO.println("Top 3 fraudes de maior valor:");
-		top3HighestValueFrauds.stream().map(Transaction::amount).forEach(IO::println);
+		top3HighestValueFrauds.forEach(amount -> IO.println(amount));
 		
 		List<String> suspectsClients = fraudAnalyzer.findTopSuspectsClients(5);
 		IO.println("Top 5 cliente suspeitos:");
