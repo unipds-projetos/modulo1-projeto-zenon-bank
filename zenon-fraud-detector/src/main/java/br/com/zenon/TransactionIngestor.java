@@ -1,14 +1,14 @@
 package br.com.zenon;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 public class TransactionIngestor {
+	
+	public static final int FRAUD_LIMIT = 50000;
 	
 	public List<Transaction> read(String fileName) {
 		
@@ -16,7 +16,7 @@ public class TransactionIngestor {
 	
 		try {
 			List<String> lines = Files.readAllLines(path);
-			return lines.stream().skip(1).limit(1000).map(this::parseTransaction).filter(Optional::isPresent).map(Optional::get).toList();
+			return lines.stream().skip(1).limit(FRAUD_LIMIT).map(this::parseTransaction).filter(Optional::isPresent).map(Optional::get).toList();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("Erro ao ler o arquivo: " + fileName, e);
